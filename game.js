@@ -6,7 +6,7 @@ let computerSelections = [];
 
 const container = document.querySelector('#container');
 const start = document.querySelector('.start');
-
+const canvas = document.querySelector('#canvas');
 
 
 // 스타트 버튼을 누르면 버튼을 감추고, 가위바위보 이미지를 노출한다. 
@@ -24,13 +24,22 @@ start.addEventListener('click', function(){
     const scissors = document.querySelector('.Scissors');
     rock.addEventListener('click', function(){game("Rock")})
     paper.addEventListener('click', function(){game("Paper")})
-    scissors.addEventListener('click', function(){game("Scissors")})
+    scissors.addEventListener('click', function(){game("Scissors")})   
 })
 
 
 
 function game(choice){
-    console.log(playRound(choice, computerPlay()));
+    if (playerWin >= 5 || computerWin >= 5){
+        return console.log("게임이 종료되었습니다.")
+    }
+    playerSelections.push(choice);
+    computerSelections.push(computerPlay());
+    
+    console.log(playRound(playerSelections[playerSelections.length-1], computerSelections[computerSelections.length-1]));
+    document.querySelector('.playerCanvas').textContent = playerSelections[playerSelections.length-1];
+    document.querySelector('.computerCanvas').textContent = computerSelections[computerSelections.length-1];
+
 }
 
 function computerPlay(){
@@ -44,8 +53,10 @@ function playRound(playerSelection, computerSelection){
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper' ||
             playerSelection == 'Paper' && computerSelection == 'Scissors' ||
             playerSelection == 'Scissors' && computerSelection == 'Rock') {
-            return `이런... ${playerSelection}이 ${computerSelection}에 졌어요.`            
+                computerWin++;
+                return `이런... ${playerSelection}이 ${computerSelection}에 졌어요.`            
     } else {
+        playerWin++;
         return `좋아요! ${playerSelection}이 ${computerSelection}를 이겼습니다.`
     }
 }
