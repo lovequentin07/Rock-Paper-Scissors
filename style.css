@@ -1,9 +1,13 @@
 #container {
     position: absolute;
     display: flex;
-    flex-wrap: wrap;
+    
+}
+
+.disappear {
+    display: none;
 }
 
 img {
-    width: 15em
+    width: 15em;
 }
