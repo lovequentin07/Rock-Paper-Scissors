@@ -1,10 +1,32 @@
+body {
+    background-color: #eee;
+}
+
+h1, h4 {
+    position: relative;
+    top: 3em;
+    text-align: center;
+}
+
+h4 {
+    top: 5em;
+}
+
 #container {
-    position: absolute;
-    display: flex;   
+    display: table;
+    margin: 0px auto;
+    position: relative;
+    top :7em;
+}
+
+.outline {
+    border: 2px solid black;
+    margin: 5px;
 }
 
 #canvas {
-    display: flex;
+    display: table;
+    margin: 0px auto;
     position: relative;
     top: 10em;
     font-size: 2em;
@@ -25,22 +47,25 @@ img {
 }
 
 .button {
+    width: 10em;
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
     cursor: pointer;
-    outline: none;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: rgb(179, 13, 13);
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
   }
   
-  .button:hover {background-color: #3e8e41}
+  .button:hover {
+      background-color: rgb(224, 32, 32);
+      transform: scale(1.2);
+
+    }
   
   .button:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
-    transform: translateY(4px);
   }

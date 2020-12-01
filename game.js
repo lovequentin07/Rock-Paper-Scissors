@@ -1,4 +1,7 @@
 const selections = ['Rock', 'Paper', 'Scissors'];
+let rock;
+let paper;
+let scissors;
 let playerWin = 0;
 let computerWin = 0;
 let playerSelections = [];
@@ -14,23 +17,25 @@ start.addEventListener('click', function(){
     start.classList.add('disappear');
     for (let i=0; i<3; i++){
         let img = document.createElement('img');
-        img.setAttribute('src', `/images/${selections[i]}.png`);
+        img.setAttribute('src', `/images/${selections[i]}.jpg`);
         img.setAttribute('alt', selections[i]);
         img.classList.add(selections[i]);
+        img.classList.add('outline');
         container.appendChild(img);
     }
-    const rock = document.querySelector('.Rock');
-    const paper = document.querySelector('.Paper');
-    const scissors = document.querySelector('.Scissors');
+    rock = document.querySelector('.Rock');
+    paper = document.querySelector('.Paper');
+    scissors = document.querySelector('.Scissors');
     rock.addEventListener('click', function(){game("Rock")})
     paper.addEventListener('click', function(){game("Paper")})
     scissors.addEventListener('click', function(){game("Scissors")})   
 })
 
-
-
 function game(choice){
     if (playerWin >= 5 || computerWin >= 5){
+        rock.remove();
+        paper.remove();
+        scissors.remove();
         return console.log("게임이 종료되었습니다.")
     }
     playerSelections.push(choice);
