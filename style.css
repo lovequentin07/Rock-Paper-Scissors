@@ -28,13 +28,13 @@ h4 {
     display: table;
     margin: 0px auto;
     position: relative;
-    top: 10em;
+    top: 7em;
     font-size: 2em;
 }
 
-.playerCanvas {
-    width: 50%;
-    text-align: center;
+.playerCanvas, .computerCanvas{
+    display: table-cell;
+    padding: 0 10px;
 }
 
 .disappear {
