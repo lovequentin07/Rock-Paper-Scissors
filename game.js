@@ -1,4 +1,5 @@
 const selections = ['Rock', 'Paper', 'Scissors'];
+const players = ['유저 : ', '컴퓨터 :']
 let rock;
 let paper;
 let scissors;
@@ -10,11 +11,14 @@ let computerSelections = [];
 const container = document.querySelector('#container');
 const start = document.querySelector('.start');
 const canvas = document.querySelector('#canvas');
+const info = document.querySelector('#info');
 
 
 // 스타트 버튼을 누르면 버튼을 감추고, 가위바위보 이미지를 노출한다. 
 start.addEventListener('click', function(){
+    // 버튼을 감춘다. 
     start.classList.add('disappear');
+    // 가위바위보 이미지를 로드한다. 
     for (let i=0; i<3; i++){
         let img = document.createElement('img');
         img.setAttribute('src', `/images/${selections[i]}.jpg`);
@@ -23,12 +27,27 @@ start.addEventListener('click', function(){
         img.classList.add('outline');
         container.appendChild(img);
     }
+    // 이미지에 이벤트 리스너를 추가한다. 
     rock = document.querySelector('.Rock');
     paper = document.querySelector('.Paper');
     scissors = document.querySelector('.Scissors');
     rock.addEventListener('click', function(){game("Rock")})
     paper.addEventListener('click', function(){game("Paper")})
-    scissors.addEventListener('click', function(){game("Scissors")})   
+    scissors.addEventListener('click', function(){game("Scissors")})  
+
+    for (let i=0; i<2; i++){
+        let div = document.createElement('div');
+        div.classList.add('board' + i);
+        div.textContent = players[i];
+        for (let j=0; j<5; j++){
+            let circle = document.createElement('span');
+            circle.classList.add('circle' + j);
+            div.appendChild(circle);
+        }
+
+        info.appendChild(div);
+    }
+    
 })
 
 function game(choice){
@@ -43,6 +62,7 @@ function game(choice){
     
     console.log(playRound(playerSelections[playerSelections.length-1], computerSelections[computerSelections.length-1]));
     document.querySelector('.playerCanvas').textContent = playerSelections[playerSelections.length-1];
+    document.querySelector('.middleCanvas').textContent = "V.S."
     document.querySelector('.computerCanvas').textContent = computerSelections[computerSelections.length-1];
 
 }

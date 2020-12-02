@@ -46,6 +46,50 @@ img {
     cursor: pointer;
 }
 
+img:hover {
+    transform: scale(1.2);
+}
+
+#info {
+    display: flex;
+    position: relative;
+    top: 10em;
+    width: 46.5%;
+    margin: 0px auto;
+}
+
+.board0, .board1 {
+    width: 50%;
+    display: table;
+    margin: 0px 10px;
+    border: 1px solid black;
+    padding: 0px 5px;
+}
+
+.circle0, .circle1, .circle2, .circle3, .circle4 {
+    width: 20px;
+    height: 20px;
+    border: 3px solid red;
+    border-radius: 50%;
+    display: table-cell;
+}
+
+.circle1 {
+    border: 3px solid blue;
+}
+
+.circle2 {
+    border: 3px solid green;
+}
+
+.circle3 {
+    border: 3px solid yellow;
+}
+
+.circle4 {
+    border: 3px solid brown;
+}
+
 .button {
     width: 10em;
     padding: 15px 25px;
