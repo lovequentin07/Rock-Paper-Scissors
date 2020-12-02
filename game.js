@@ -44,7 +44,6 @@ start.addEventListener('click', function(){
             circle.classList.add('circle' + j);
             div.appendChild(circle);
         }
-
         info.appendChild(div);
     }
     
@@ -78,10 +77,32 @@ function playRound(playerSelection, computerSelection){
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper' ||
             playerSelection == 'Paper' && computerSelection == 'Scissors' ||
             playerSelection == 'Scissors' && computerSelection == 'Rock') {
+
+                let stem = document.createElement('div');
+                stem.classList.add('stem');
+                let kick = document.createElement('div');
+                kick.classList.add('kick');
+                let markDiv = document.querySelector('.board1');
+                let checkMark = markDiv.querySelector('.circle' + computerWin);
+                checkMark.classList.add('checkMark');
+                checkMark.appendChild(stem);
+                checkMark.appendChild(kick);
                 computerWin++;
+
                 return `이런... ${playerSelection}이 ${computerSelection}에 졌어요.`            
     } else {
         playerWin++;
         return `좋아요! ${playerSelection}이 ${computerSelection}를 이겼습니다.`
     }
+}
+
+function makeCheckMark(){
+    let whole = document.createElement('span');
+    whole.classList.add('whole');
+    let stem = document.createElement('div');
+    stem.classList.add('stem');
+    let kick = document.createElement('div');
+    kick.classList.add('kick');
+    whole.appendChild(stem);
+    whole.appendChild(kick);
 }
