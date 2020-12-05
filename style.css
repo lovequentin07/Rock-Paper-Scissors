@@ -24,12 +24,20 @@ h4 {
     margin: 5px;
 }
 
+.result {
+    position: relative;
+    margin: 0px auto;
+    display: table;
+    top: 8em;
+    font-size: 1.5em;
+}
+
 #canvas {
     display: table;
     margin: 0px auto;
     position: relative;
-    top: 7em;
-    font-size: 2em;
+    top: 8em;
+    font-size: 1.5em;
 }
 
 .playerCanvas, .computerCanvas{
@@ -59,7 +67,7 @@ img:hover {
 }
 
 .board0, .board1 {
-    width: 50%;
+    width: 100%;
     display: table;
     margin: 0px 10px;
     border: 1px solid black;
@@ -91,9 +99,9 @@ img:hover {
 }
 
 .checkMark {
-    position :relative;
-    width: 22px;
-    height:22px;
+    position: relative;
+    width: 20px;
+    height:20px;
     -ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
     transform: rotate(45deg);
@@ -101,7 +109,7 @@ img:hover {
 
 .stem {
     position: absolute;
-    width: 10px;
+    width: 6px;
     height: 25px;
     background-color: black;
     left:5px;
@@ -113,7 +121,7 @@ img:hover {
     right:13px;
     bottom:7px;
     width: 10px;
-    height: 10px;
+    height: 6px;
     background-color: black;
 }
 
